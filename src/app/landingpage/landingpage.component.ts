@@ -6,7 +6,7 @@ import { RecipeWidgetDisplayComponent } from "../recipe-widget-display/recipe-wi
   imports: [ RecipeWidgetDisplayComponent],
   template: `
     <header>
-      <h1>NomNom</h1>
+      <h1>CHOMP CHOMP CHOMP</h1>
     </header>
     <main>
       <app-recipe-widget-display></app-recipe-widget-display>

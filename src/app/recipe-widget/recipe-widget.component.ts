@@ -18,9 +18,12 @@ import {MatButtonModule} from '@angular/material/button';
 
         <a [href]="recipe().link" target="_blank">View Recipe</a>
       </p>
-      @for (tag of recipe().tags; track $index) {
-        <mat-chip>{{tag}}</mat-chip>
-      }
+      <mat-chip-set>
+
+        @for (tag of recipe().tags; track $index) {
+          <mat-chip>{{tag}}</mat-chip>
+        }
+      </mat-chip-set>
     </mat-card-content>
       <mat-card-actions>
         <button mat-button>KOCHEN</button>
