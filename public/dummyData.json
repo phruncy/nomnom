@@ -1,65 +1,136 @@
-{"recipes":[
+{
+  "recipes": [
     {
       "id": 1,
-      "name":"Pizza",
-      "description":"Pizza is a delicious dish that is made with a dough and a sauce and a cheese and a topping.",
-      "tags":["Italian","Pizza","Dinner"],
+      "name": "Pizza",
+      "description": "Pizza is a savory dish prepared with dough, tomato sauce, melted cheese, and a variety of toppings.",
+      "tags": ["Italian", "Pizza", "Dinner"],
       "link": "https://www.google.com"
     },
     {
       "id": 2,
       "name": "Burger",
-      "description": "Burger is a delicious dish that is made with a bun and a meat and a cheese and a topping.",
+      "description": "Burger is a tasty meal made with a bun, grilled meat, melted cheese, and your choice of extras.",
       "tags": ["American", "Burger", "Dinner", "heavy"],
       "link": "https://www.google.com"
     },
     {
       "id": 3,
       "name": "Sushi",
-      "description": "Sushi is a delicious dish that is made with a rice and a fish and a topping.",
+      "description": "Sushi is a flavorful dish crafted with seasoned rice, fresh fish, and various toppings or fillings.",
       "tags": ["Japanese", "Sushi", "Dinner", "light"],
       "link": "https://www.google.com"
     },
     {
       "id": 4,
       "name": "Pasta",
-      "description": "Pasta is a delicious dish that is made with a pasta and a sauce and a cheese and a topping.",
+      "description": "Pasta is a hearty meal created with noodles, rich sauce, melted cheese, and delicious toppings.",
       "tags": ["Italian", "Pasta", "Dinner", "heavy"],
       "link": "https://www.google.com"
     },
     {
       "id": 5,
       "name": "Salad",
-      "description": "Salad is a delicious dish that is made with a salad and a sauce and a cheese and a topping.",
+      "description": "Salad is a refreshing dish made from leafy greens, dressing, cheeses, and assorted toppings.",
       "tags": ["Italian", "Salad", "Vegan", "cold", "Sides"],
       "link": "https://www.google.com"
     },
     {
       "id": 6,
       "name": "Rice Bowl",
-      "description": "Rice Bowl is a delicious dish that is made with a rice and a sauce and a cheese and a topping.",
+      "description": "Rice Bowl is a filling dish combining steamed rice, flavorful sauce, cheese, and fresh toppings.",
       "tags": ["Japanese", "Rice Bowl", "Dinner"],
       "link": "https://www.google.com"
     },
     {
-      "id":7,
-      "name":"Steak",
-      "description":"Steak is a delicious dish that is made with a steak and a sauce and a cheese and a topping.",
-      "tags":["American","Steak","Dinner"],
-      "link":"https://www.google.com"
+      "id": 7,
+      "name": "Steak",
+      "description": "Steak is a rich dish featuring a grilled cut of beef, savory sauces, melted cheese, and extras.",
+      "tags": ["American", "Steak", "Dinner"],
+      "link": "https://www.google.com"
     },
     {
-      "id":8,
-      "name":"Souflaki",
-      "description":"Souflaki is a delicious dish that is made with a souflaki and a sauce and a cheese and a topping.",
-      "tags":["Greek","Souflaki","Dinner"],
-      "link":"https://www.google.com"
+      "id": 8,
+      "name": "Souflaki",
+      "description": "Souflaki is a grilled dish made with skewered meat, tangy sauce, cheese, and tasty toppings.",
+      "tags": ["Greek", "Souflaki", "Dinner"],
+      "link": "https://www.google.com"
     },
     {
-      "id":9,
+      "id": 9,
       "name": "Tacos",
-      "description": "Tacos is a delicious dish that is made with a taco and a sauce and a cheese and a topping.",
+      "description": "Tacos are hand-held treats with tortillas, bold sauces, cheese, and flavorful fillings.",
       "tags": ["Mexican", "Tacos", "Dinner", "light"],
+      "link": "https://www.google.com"
+    },
+    {
+      "id": 10,
+      "name": "Ramen",
+      "description": "Ramen is a warm noodle soup made with broth, chewy noodles, and assorted toppings.",
+      "tags": ["Japanese", "Ramen", "Soup", "Dinner"],
+      "link": "https://www.google.com"
+    },
+    {
+      "id": 11,
+      "name": "Falafel",
+      "description": "Falafel is a crunchy vegan meal made with chickpeas, flatbread, sauces, and fresh veggies.",
+      "tags": ["Middle Eastern", "Falafel", "Vegan", "Lunch"],
+      "link": "https://www.google.com"
+    },
+    {
+      "id": 12,
+      "name": "Quesadilla",
+      "description": "Quesadilla is a grilled tortilla dish filled with cheese, spices, and delicious fillings.",
+      "tags": ["Mexican", "Quesadilla", "Lunch", "Cheesy"],
+      "link": "https://www.google.com"
+    },
+    {
+      "id": 13,
+      "name": "Curry",
+      "description": "Curry is a spicy stew made with meats or veggies, aromatic sauces, and bold seasonings.",
+      "tags": ["Indian", "Curry", "Spicy", "Dinner"],
+      "link": "https://www.google.com"
+    },
+    {
+      "id": 14,
+      "name": "Crepes",
+      "description": "Crepes are thin pancakes served with sweet or savory fillings and a range of toppings.",
+      "tags": ["French", "Crepes", "Breakfast", "Dessert"],
+      "link": "https://www.google.com"
+    },
+    {
+      "id": 15,
+      "name": "Paella",
+      "description": "Paella is a festive rice dish made with seafood, saffron spices, and savory ingredients.",
+      "tags": ["Spanish", "Paella", "Seafood", "Dinner"],
+      "link": "https://www.google.com"
+    },
+    {
+      "id": 16,
+      "name": "Dumplings",
+      "description": "Dumplings are dough pockets stuffed with meat or veggies, steamed or fried to perfection.",
+      "tags": ["Chinese", "Dumplings", "Lunch"],
+      "link": "https://www.google.com"
+    },
+    {
+      "id": 17,
+      "name": "Shakshuka",
+      "description": "Shakshuka is a flavorful skillet dish made with eggs poached in spicy tomato sauce.",
+      "tags": ["Middle Eastern", "Shakshuka", "Brunch"],
+      "link": "https://www.google.com"
+    },
+    {
+      "id": 18,
+      "name": "Gnocchi",
+      "description": "Gnocchi is a pillowy pasta made from potatoes, served with sauces and cheese toppings.",
+      "tags": ["Italian", "Gnocchi", "Dinner"],
+      "link": "https://www.google.com"
+    },
+    {
+      "id": 19,
+      "name": "Banh Mi",
+      "description": "Banh Mi is a Vietnamese sandwich with crusty bread, pickled veggies, meat, and sauce.",
+      "tags": ["Vietnamese", "Banh Mi", "Lunch", "Fusion"],
       "link": "https://www.google.com"
     }
   ]
