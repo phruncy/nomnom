@@ -1,0 +1,66 @@
+{"recipes":[
+    {
+      "id": 1,
+      "name":"Pizza",
+      "description":"Pizza is a delicious dish that is made with a dough and a sauce and a cheese and a topping.",
+      "tags":["Italian","Pizza","Dinner"],
+      "link": "https://www.google.com"
+    },
+    {
+      "id": 2,
+      "name": "Burger",
+      "description": "Burger is a delicious dish that is made with a bun and a meat and a cheese and a topping.",
+      "tags": ["American", "Burger", "Dinner", "heavy"],
+      "link": "https://www.google.com"
+    },
+    {
+      "id": 3,
+      "name": "Sushi",
+      "description": "Sushi is a delicious dish that is made with a rice and a fish and a topping.",
+      "tags": ["Japanese", "Sushi", "Dinner", "light"],
+      "link": "https://www.google.com"
+    },
+    {
+      "id": 4,
+      "name": "Pasta",
+      "description": "Pasta is a delicious dish that is made with a pasta and a sauce and a cheese and a topping.",
+      "tags": ["Italian", "Pasta", "Dinner", "heavy"],
+      "link": "https://www.google.com"
+    },
+    {
+      "id": 5,
+      "name": "Salad",
+      "description": "Salad is a delicious dish that is made with a salad and a sauce and a cheese and a topping.",
+      "tags": ["Italian", "Salad", "Vegan", "cold", "Sides"],
+      "link": "https://www.google.com"
+    },
+    {
+      "id": 6,
+      "name": "Rice Bowl",
+      "description": "Rice Bowl is a delicious dish that is made with a rice and a sauce and a cheese and a topping.",
+      "tags": ["Japanese", "Rice Bowl", "Dinner"],
+      "link": "https://www.google.com"
+    },
+    {
+      "id":7,
+      "name":"Steak",
+      "description":"Steak is a delicious dish that is made with a steak and a sauce and a cheese and a topping.",
+      "tags":["American","Steak","Dinner"],
+      "link":"https://www.google.com"
+    },
+    {
+      "id":8,
+      "name":"Souflaki",
+      "description":"Souflaki is a delicious dish that is made with a souflaki and a sauce and a cheese and a topping.",
+      "tags":["Greek","Souflaki","Dinner"],
+      "link":"https://www.google.com"
+    },
+    {
+      "id":9,
+      "name": "Tacos",
+      "description": "Tacos is a delicious dish that is made with a taco and a sauce and a cheese and a topping.",
+      "tags": ["Mexican", "Tacos", "Dinner", "light"],
+      "link": "https://www.google.com"
+    }
+  ]
+}
