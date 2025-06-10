@@ -7,10 +7,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { merge } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { IRecipe } from '../IRecipe';
+import { IRecipe } from '../core/IRecipe';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { noDuplicatesValidator } from '../shared/validators/no-duplicates.validator';
+import { RecipeService } from '../core/services/recipe.service';
 
 @Component({
     selector: 'app-create-recipe-form',
@@ -37,7 +38,7 @@ import { noDuplicatesValidator } from '../shared/validators/no-duplicates.valida
                     type="text"
                 />
                 @if (recipeForm.get('name')?.touched && recipeForm.get('name')?.invalid) {
-                    <mat-error>{{ errorMessage() }}</mat-error>
+                    <mat-error>{{ nameErrorMessage() }}</mat-error>
                 }
             </mat-form-field>
             <mat-form-field>
@@ -83,17 +84,20 @@ export class CreateRecipeFormComponent {
     readonly tags = signal<string[]>([]);
     readonly tagInputSeperatorKeycodes = [ENTER, COMMA] as const;
     readonly announcer = inject(LiveAnnouncer);
+    readonly recipeService = inject(RecipeService);
     readonly recipeForm = new FormGroup({
         name: new FormControl('', [Validators.required, Validators.maxLength(this.nameMaxLength)]),
         link: new FormControl(''),
         tags: new FormControl([], noDuplicatesValidator(this.tags)),
     });
-
-    readonly errorMessage = signal('Darf nicht leer sein');
+    
     readonly errorMessages = {
+        nameEmpty: 'Darf nicht leer sein.',
+        tooLong: 'Darf nicht länger als 256 zeichen sein.',
         duplicateTag: 'Tag existiert bereits!',
         invalidTotal: 'Die Eingabe ist unvollständig!',
-    };
+    } as const;
+    readonly nameErrorMessage = signal('Darf nicht leer sein');
     readonly hadError = signal(false);
 
     constructor() {
@@ -104,23 +108,21 @@ export class CreateRecipeFormComponent {
             });
     }
 
-    get tagControl() {
-        return <FormControl>this.recipeForm.get('tags');
-    }
-
     updateErrorMessage(): void {
         if (this.recipeForm.get('name')?.hasError('required')) {
-            this.errorMessage.set('Darf nicht leer sein');
+            this.nameErrorMessage.set(this.errorMessages.nameEmpty);
         } else if (this.recipeForm.controls.name.hasError('maxlength')) {
-            this.errorMessage.set('Cannot be longer than 256 characters');
+            this.nameErrorMessage.set(this.errorMessages.tooLong);
         } else {
-            this.errorMessage.set('');
+            this.nameErrorMessage.set('');
         }
     }
 
     onSubmit() {
         if (this.recipeForm.valid) {
-            this.createRecipe();
+            const recipe = this.createRecipe();
+            this.recipeService.addRecipe(recipe);
+
         } else {
             this.hadError.set(true);
         }
@@ -153,13 +155,13 @@ export class CreateRecipeFormComponent {
     }
 
     private createRecipe() {
-        let recipe: IRecipe = {
+        const recipe: IRecipe = {
             id: 0,
             name: this.recipeForm.controls.name.value ?? '',
             description: '',
             tags: this.tags(),
             link: this.recipeForm.controls.link.value ?? '',
         };
-        console.debug(recipe);
+        return recipe;
     }
 }
