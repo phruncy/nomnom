@@ -1,8 +1,8 @@
-import { RecipeService } from './../recipe.service';
+import { RecipeService } from '../core/services/recipe.service';
 import { Component, inject } from '@angular/core';
 import { RecipeWidgetComponent } from '../recipe-widget/recipe-widget.component';
 import { Observable } from 'rxjs';
-import { IRecipe } from '../IRecipe';
+import { IRecipe } from '../core/IRecipe';
 import { AsyncPipe, SlicePipe } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 

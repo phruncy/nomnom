@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { IRecipe } from './IRecipe';
+import { IRecipe } from '../IRecipe';
 import { map, Observable, shareReplay } from 'rxjs';
 
 @Injectable({
@@ -12,6 +12,10 @@ export class RecipeService {
 
   constructor() {
     this._allRecipes$= this.getRecipes();
+  }
+
+  addRecipe(recipe: IRecipe): void {
+    console.debug(recipe);
   }
 
   getRandomSubset(size: number): Observable<IRecipe[]>{

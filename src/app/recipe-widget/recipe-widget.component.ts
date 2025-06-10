@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { IRecipe } from '../IRecipe';
+import { IRecipe } from '../core/IRecipe';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import {MatButtonModule} from '@angular/material/button';
