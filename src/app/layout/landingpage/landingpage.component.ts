@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RecipeWidgetDisplayComponent } from '../../app/recipe-widget-display/recipe-widget-display.component';
+import { RecipeWidgetDisplayComponent } from '../../recipe-widget-display/recipe-widget-display.component';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 
@@ -12,7 +12,7 @@ import { RouterLink } from '@angular/router';
         </header>
         <main>
             <app-recipe-widget-display></app-recipe-widget-display>
-            <a matButton routerLink="create">New Recipe</a>
+            <a matButton routerLink="create">Create New</a>
         </main>
         <footer></footer>
     `,
