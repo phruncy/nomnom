@@ -1,4 +1,0 @@
-{
-    "verbose:": true,
-    "ignore": ["public/dummyData.json"]
-}

@@ -1,0 +1,23 @@
+services:
+
+  nomnom-db:
+    image: mysql:9.4.0
+    environment:
+      MYSQL_DATABASE: ${NOMNOM_MYSQL_DEV_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${NOMNOM_MYSQL_DEV_ROOT_PASSWORD}
+
+  nomnom-api:
+    image: nomnombackend
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      target: dev
+    environment:
+      NODE_ENV: development
+      MYSQL_DATABASE: ${NOMNOM_MYSQL_DEV_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${NOMNOM_MYSQL_DEV_ROOT_PASSWORD}
+    ports:
+      - 3000:3000
+      - 9229:9229
+      - 5000:5000
+    command: npm run start:dev

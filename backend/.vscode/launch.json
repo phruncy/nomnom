@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "name": "Attach To DebugContainer",
+            "type": "node",
+            "request": "attach",
+            "port": 9229,
+            "address": "localhost",
+            "restart": true,
+            "localRoot": "${workspaceFolder}",
+            "remoteRoot": "usr/src/app",
+            "protocol": "inspector",
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
+        }
+    ],
+    "compounds": [
+    {
+      "name": "Start Container and Debug",
+      "configurations": ["Attach To DebugContainer"],
+      "preLaunchTask": "docker-compose: up"
+    }
+  ]
+}

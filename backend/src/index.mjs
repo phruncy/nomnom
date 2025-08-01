@@ -1,14 +1,19 @@
 import express from 'express';
 import routes from './routes/index.mjs';
+import { connectToDatabase } from './db/index.mjs';
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const app = express();
 
-app.use('/api', routes);
-app.listen(PORT, () => {
-    console.log(`Running on port ${PORT}`);
-});
+connectToDatabase()
+    .then(() => {
+        app.listen(PORT, () => {
+            console.log(`Running on port ${PORT}`);
+        });
+    })
+    .catch(err => {
+        console.error(`Database connection failed, error: ${err}`);
+        process.exit(0);
+    });
 
-app.get('/', (req, res) => {
-    res.send('Hi');
-});
+app.use('/api', routes);
