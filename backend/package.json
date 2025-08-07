@@ -6,7 +6,7 @@
     "scripts": {
         "start:dev": "node --watch --inspect=0.0.0.0:9229 ./src/index.mjs",
         "start": "node ./src/index.mjs",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "vitest"
     },
     "author": "franziskaschneider",
     "license": "ISC",
@@ -19,7 +19,8 @@
         "eslint": "^9.31.0",
         "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-prettier": "^5.5.3",
-        "prettier": "^3.6.2"
+        "prettier": "^3.6.2",
+        "vitest": "^3.2.4"
     },
     "type": "module"
 }
