@@ -17,3 +17,11 @@ connectToDatabase()
     });
 
 app.use('/api', routes);
+app.use((error, req, res, next) => {
+    console.log('Global Error!');
+    if (error.status) {
+        res.status(error.status).send(error.msg);
+    } else {
+        res.sendStatus(500);
+    }
+})

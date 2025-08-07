@@ -11,5 +11,11 @@ export const recipeValidationSchema = {
     link: {
         isString: { errorMessage: 'link must be a string'},
         isLength: { options: { max: 512}, errorMessage: 'Must not be longer than 512 charcters'}
+    },
+    tags: {
+        isArray: { errorMessage: 'Must be an array'},
+    },
+    'tags.*': {
+        isString: { errorMessage: 'tags must be strings'}
     }
 };

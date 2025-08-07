@@ -3,6 +3,7 @@ import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { validationResult, matchedData } from 'express-validator';
 import { createRecipe, findAllRecipes, findRecipe, remove, updateRecipe } from '../db/queries.mjs';
+import { RequestError } from '../models/RequestError.mjs';
 
 export const getAllRecipes = async (req, res) => {
     try {
@@ -13,48 +14,47 @@ export const getAllRecipes = async (req, res) => {
     }
 };
 
-export const getRecipe = async (req, res) => {
-    const parsedId = parseInt(req.params.id);
-    if (isNaN(parsedId)) {
-        return res.status(400).send({ msg: 'Bad request. Invalid id.' });
-    }
-
+export const getRecipe = async (req, res, next) => {
     try {
+        const parsedId = parseInt(req.params.id);
+        if (isNaN(parsedId)) {
+            throw new RequestError(400, 'invalid Id');
+        }
         const data = await findRecipe(parsedId);
         res.status(200).json({data});
-    } catch {
-        return res.sendStatus(404);
+    } catch (error) {
+        next(error);
     }
 };
 
-export const deleteRecipe = async (req, res) => {
-    const {
-        params: { id },
-    } = req;
-    const parsedId = parseInt(id);
-    if (isNaN(parsedId)) {
-        return res.sendStatus(400);
-    }
+export const deleteRecipe = async (req, res, next) => {
     try {
+        const {
+            params: { id },
+        } = req;
+        const parsedId = parseInt(id);
+        if (isNaN(parsedId)) {
+            throw new RequestError(404);
+        }
         const result = await remove(parsedId);
-    } catch {
-        res.status(500).send({msg: 'Internal Error: Could not delete record'});   
+    } catch (error) {
+        next(error)   
     }
     res.sendStatus(200);
 };
 
-export const addRecipe = async(req, res) => {
-    const result = validationResult(req);
-    if (!result.isEmpty()) {
-        return res.status(400).send({ errors: result.array() });
-    }
-    const recipe = matchedData(req);
+export const addRecipe = async(req, res, next) => {
     try {
+        const result = validationResult(req);
+        if (!result.isEmpty()) {
+            throw new RequestError(400);
+        }
+        const recipe = matchedData(req);
         await createRecipe(recipe);
+        res.status(201).send(recipe);
     } catch {
-        return res.status(500).send("Could not create Resource");
+        next(error);
     }
-    res.status(201).send(recipe);
 };
 
 export const replaceRecipe = async (req, res) => {
@@ -62,15 +62,15 @@ export const replaceRecipe = async (req, res) => {
         body,
         params: { id },
     } = req;
-    const parsedId = parseInt(id);
-    if (isNaN(parsedId)) return res.sendStatus(400);
-
+    
     try {
+        const parsedId = parseInt(id);
+        if (isNaN(parsedId)) throw new RequestError(404);
         const result = await updateRecipe({id: parsedId, ...body});
         res.sendStatus(200);
     }
-    catch {
-        res.status.send("Error: Coud NOT update Resource");
+    catch (error) {
+        next(error); 
     }
 };
 
