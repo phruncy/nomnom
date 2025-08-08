@@ -38,7 +38,7 @@
 		{
 			"label": "docker-compose: up",
 			"type": "shell",
-			"command": "docker-compose -f compose.yaml -f compose.debug.yaml up --build",
+			"command": "docker compose -f compose.yaml -f compose.debug.yaml up --build",
 			"problemMatcher": [],
 			"isBackground": true
 		}
